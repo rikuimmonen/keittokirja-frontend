@@ -1,0 +1,171 @@
+* {
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 100%;
+    line-height: 1.5;
+    font-family: georgia, "segoe ui", sans-serif;
+}
+
+body {
+    margin: 0 5%;
+    background: #eee;
+}
+
+h1, h2, h3 {
+    font-family: arial, sans-serif;
+}
+
+#wrapper {
+    max-width: 60em;
+    margin: 0 auto;
+    background: #fff;
+    padding: 3em;
+}
+
+#header {
+    margin: 0 0 3em;
+}
+
+#header h1 {
+    font-size: 1em;
+    margin: 0;
+}
+
+#header h1 img {
+    display: block;
+    max-width: 100%;
+}
+
+#header nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    border-top: 5px double #000;
+    border-bottom: 1px solid #000;
+}
+
+#header nav ul li {
+    flex: 1;
+}
+
+#header nav ul li a {
+    display: block;
+    color: #000;
+    text-decoration: none;
+    padding: 2em 0;
+    font-size: .75em;
+    line-height: 1rem;
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+}
+
+#header nav ul li + li {
+    border-left: 1px solid #000;
+}
+
+#header nav ul li a:hover {
+    background: #eee;
+}
+
+/*
+RESEPTI
+ */
+
+.recipe header {
+    display: flex;
+    justify-content: space-between;
+    gap: 1.5em;
+    border-bottom: 5px double #333;
+    padding: 0 0 1.5em;
+}
+
+.recipe .header-wrapper {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    justify-content: space-between;
+}
+
+.recipe figure {
+    padding: 0;
+    margin: 0;
+    flex: 2;
+}
+
+.recipe img {
+    display: block;
+    max-width: 100%;
+}
+
+.recipe h1 {
+    font-size: 2em;
+    line-height: 1.2;
+    margin: 0;
+}
+
+.user {
+    display: flex;
+}
+
+.user p {
+    margin: 1.5em 0 1.5em 1.5em;
+}
+
+.user img {
+    max-height: 6em;
+}
+
+.recipe .content {
+    display: flex;
+}
+
+.recipe .content .ingredients {
+    border-right: 1px solid #000;
+    padding: 0 3em 3em 0;
+    flex: 2;
+}
+
+.recipe .content .directions {
+    padding: 0 3em;
+    flex: 3;
+}
+
+.recipe ul, .recipe ol {
+    margin: 0;
+    padding: 0;
+}
+
+.recipe ul, .recipe ol {
+    list-style: none;
+}
+
+.recipe ol {
+    counter-reset: ol
+}
+
+.recipe ol li:before {
+    content: counter(ol) ". ";
+    counter-increment: ol;
+    font-weight: bold
+}
+
+.recipe h2 {
+    font-size: 1.25em;
+    margin: 3rem 0 1.5rem;
+}
+
+/* LOMAKE */
+
+#add-recipe {
+
+}
+
+textarea {
+    font-family: inherit;
+    line-height: inherit;
+    font-size: inherit;
+}
