@@ -29,7 +29,7 @@
                 <h1>Lisää uusi resepti</h1>
             </header>
 
-            <form action="http://localhost:3000/recipe" method="post" enctype="multipart/form-data">
+            <form action="http://localhost:3000/recipe" method="post" enctype="multipart/form-data" id="addRecipe">
                 <fieldset id="meta">
                     <legend>Reseptin tiedot</legend>
                     <p>
@@ -89,6 +89,24 @@
 </div>
 
 <script>
+  const form = document.querySelector('#addRecipe')
+  form.addEventListener('submit', async (evt) => {
+    evt.preventDefault();
+    const fd = new FormData(form);
+    const fetchOptions = {
+      method: 'POST',
+      headers: {
+        Authorization: 'Bearer ' + sessionStorage.getItem('token'),
+      },
+      body: fd,
+    };
+    const response = await fetch('http://localhost:3000/recipe/', fetchOptions);
+    const json = await response.json();
+    //alert(json.message);
+    console.log(fd);
+    //location.href = '_index.html';
+  });
+
   const ingredientsList = document.querySelector('#ingredients ul');
   const ingredientInput = (i) => {
     return `
@@ -136,6 +154,29 @@
       );
     });
   });
+
+  (async () => {
+    'use strict';
+    const url = 'http://localhost:3000'; // change url when uploading to server
+
+    // check sessionStorage
+    // check if token valid
+    try {
+      const fetchOptions = {
+        headers: {
+          Authorization: 'Bearer ' + sessionStorage.getItem('token'),
+        },
+      };
+      const response = await fetch(url + '/user/token', fetchOptions);
+      if (!response.ok) {
+      } else {
+        const json = await response.json();
+        sessionStorage.setItem('user', JSON.stringify(json.user));
+      }
+    } catch (e) {
+      console.log(e.message);
+    }
+  })();
 </script>
 </body>
 </html>
