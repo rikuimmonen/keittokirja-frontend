@@ -107,16 +107,8 @@ RESEPTI
     margin: 0;
 }
 
-.user {
-    display: flex;
-}
-
 .user p {
-    margin: 1.5em 0 1.5em 1.5em;
-}
-
-.user img {
-    max-height: 6em;
+    margin: 0;
 }
 
 .recipe .content {
