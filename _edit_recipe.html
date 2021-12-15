@@ -109,42 +109,32 @@
   const editRecipe = document.querySelector('#editRecipe');
   editRecipe.addEventListener('submit', async (evt) => {
     evt.preventDefault();
-    const send = {};
-    send.recipeTitle = title.value;
-    send.recipeSize = size.value;
-    send.recipeTime = time.value;
+    const data = {};
+    data.recipeTitle = title.value;
+    data.recipeSize = size.value;
+    data.recipeTime = time.value;
+
     let recipeIngredient = [];
-    const ingredients = document.getElementsByClassName('ingredients')
+    const ingredients = document.getElementsByClassName('ingredients');
     for (let i = 0; i < ingredients.length; i++) {
-      recipeIngredient.push(ingredients[i].value)
+      recipeIngredient.push(ingredients[i].value);
     }
-    send.recipeIngredient = recipeIngredient;
+    data.recipeIngredient = recipeIngredient;
+
     let recipeDirection = [];
-    const directions = document.getElementsByClassName('directions')
+    const directions = document.getElementsByClassName('directions');
     for (let i = 0; i < directions.length; i++) {
-      recipeDirection.push(directions[i].value)
+      recipeDirection.push(directions[i].value);
     }
-    send.recipeDirection = recipeDirection;
-    const fd = new FormData(editRecipe);
-    const data = serializeJson(editRecipe);
-    console.log(send);
-    console.log(data);
-    /*
-    const data = serializeJson(editRecipe);
-    // remove empty properties
-    for (const [prop, value] of Object.entries(data)) {
-      if (value === '') {
-        delete data[prop];
-      }
-    }
-     */
+    data.recipeDirection = recipeDirection;
+
     const fetchOptions = {
       method: 'PUT',
       headers: {
         'Content-Type': 'application/json',
         Authorization: 'Bearer ' + sessionStorage.getItem('token'),
       },
-      body: JSON.stringify(send),
+      body: JSON.stringify(data),
     };
 
     const response = await fetch(url + '/recipe/' + recipe_id, fetchOptions);
