@@ -4,7 +4,16 @@ const url = 'http://localhost:3000';
 const profiili = document.querySelector('#profiili');
 const reseptilista = document.querySelector('#reseptilista')
 
-const user_id = 1;
+let logged;
+
+logged = !(!sessionStorage.getItem('token') || !sessionStorage.getItem('user'));
+console.log(logged);
+console.log(sessionStorage.getItem('token'));
+console.log(sessionStorage.getItem('user'));
+
+const loggedUser = JSON.parse(sessionStorage.getItem('user'));
+console.log(loggedUser);
+
 
 const createProfile = (user) => {
   const h2 = document.createElement('h2');
@@ -33,7 +42,7 @@ const createRecipes = (recipes) => {
 
 const getUser = async () => {
   try {
-    const response = await fetch(url + '/user/' + user_id + '/');
+    const response = await fetch(url + '/user/' + loggedUser.id + '/');
     const user = await response.json();
     //console.log(user);
     createProfile(user);
@@ -44,7 +53,7 @@ const getUser = async () => {
 
 const getRecipes = async () => {
   try {
-    const response = await fetch(url + '/user/' + user_id + '/recipe');
+    const response = await fetch(url + '/user/' + loggedUser.id + '/recipe');
     const recipes = await response.json();
     //console.log(recipes);
     createRecipes(recipes);
@@ -52,6 +61,31 @@ const getRecipes = async () => {
     console.log(e.message);
   }
 };
+
+
+//logged-check
+(async () => {
+  'use strict';
+  const url = 'http://localhost:3000'; // change url when uploading to server
+
+  // check sessionStorage
+  // check if token valid
+  try {
+    const fetchOptions = {
+      headers: {
+        Authorization: 'Bearer ' + sessionStorage.getItem('token'),
+      },
+    };
+    const response = await fetch(url + '/user/token', fetchOptions);
+    if (!response.ok) {
+    } else {
+      const json = await response.json();
+      sessionStorage.setItem('user', JSON.stringify(json.user));
+    }
+  } catch (e) {
+    console.log(e.message);
+  }
+})();
 
 getUser();
 getRecipes();
