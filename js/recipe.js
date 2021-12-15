@@ -97,7 +97,7 @@ const recipe = (json) => {
     };
     try {
       const response = await fetch(
-          'http://localhost:3000/recipe/' + recipeId,
+          'http://localhost:3001/recipe/' + recipeId,
           fetchOptions,
       );
       const json = await response.json();
@@ -117,7 +117,7 @@ const getRecipes = async (hash) => {
       },
     };
     console.log(sessionStorage.getItem('token'));
-    const response = await fetch('http://localhost:3000/recipe/' + hash,
+    const response = await fetch('http://localhost:3001/recipe/' + hash,
         fetchOptions);
     const recipes = await response.json();
     if (recipes.message === 'Database error') {
@@ -151,7 +151,7 @@ for (let i = 0; i < links.length; i++) {
 
 (async () => {
   'use strict';
-  const url = 'http://localhost:3000'; // change url when uploading to server
+  const url = 'http://localhost:3001'; // change url when uploading to server
 
   // check sessionStorage
   // check if token valid

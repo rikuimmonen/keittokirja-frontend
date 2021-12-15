@@ -1,5 +1,5 @@
 'use strict';
-const url = 'http://localhost:3000';
+const url = 'http://localhost:3001';
 
 const profiili = document.querySelector('#profiili');
 const reseptilista = document.querySelector('#reseptilista')
@@ -35,10 +35,18 @@ const createRecipes = (recipes) => {
   recipes.forEach((recipe) => {
     console.log(recipe);
 
+    let id = recipe.recipe_id;
+    console.log(id);
+
     const h4 = document.createElement('h4');
     const a = document.createElement('a');
     a.innerHTML = recipe.title;
-    a.setAttribute('href', 'recipe.html')
+    a.setAttribute('href', 'single_recipe.html?id=' + id);
+/*
+    // open image in single.html
+    h4.addEventListener('click', () => {
+      location.href = 'single_recipe.html?id=' + id;
+    });*/
 
     h4.appendChild(a);
 
@@ -75,7 +83,7 @@ const getRecipes = async () => {
 //logged-check
 (async () => {
   'use strict';
-  const url = 'http://localhost:3000'; // change url when uploading to server
+  const url = 'http://localhost:3001'; // change url when uploading to server
 
   // check sessionStorage
   // check if token valid
