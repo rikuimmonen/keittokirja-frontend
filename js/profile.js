@@ -1,5 +1,5 @@
 'use strict';
-const url = 'http://localhost:3001';
+const url = 'https://10.114.34.87/keittokirja';
 
 const profiili = document.querySelector('#profiili');
 const reseptilista = document.querySelector('#reseptilista')
@@ -18,7 +18,6 @@ if (logged === false) {
   console.log('lol');
   location.href = 'login.html';
 }
-
 
 const createProfile = (user) => {
   const h2 = document.createElement('h2');
@@ -83,7 +82,7 @@ const getRecipes = async () => {
 //logged-check
 (async () => {
   'use strict';
-  const url = 'http://localhost:3001'; // change url when uploading to server
+  const url = 'https://10.114.34.87/keittokirja';
 
   // check sessionStorage
   // check if token valid

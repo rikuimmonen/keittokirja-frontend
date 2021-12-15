@@ -1,5 +1,5 @@
 'use strict';
-const url = 'http://localhost:3001'; // change url when uploading to server
+const url = 'https://10.114.34.87/keittokirja'; // change url when uploading to server
 
 // select existing html elements
 const loginForm = document.querySelector('#login-form');

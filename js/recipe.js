@@ -9,10 +9,9 @@ if (logged) {
   document.querySelector('#forms').setAttribute('style', 'display: none');
 }
 
-const recipeTemplate = (recipeId, recipeImage, recipeTitle, recipeSize,
-                        recipeTime,
-                        recipeCreator, recipeDate, recipeIngredients,
-                        recipeDirections) => {
+const recipeTemplate = (
+    recipeId, recipeImage, recipeTitle, recipeSize, recipeTime, recipeCreator,
+    recipeDate, recipeIngredients, recipeDirections) => {
   return `<article class="recipe-${recipeId}">
             <header>
                 <figure>
@@ -56,6 +55,8 @@ const recipeTemplate = (recipeId, recipeImage, recipeTitle, recipeSize,
         </article`;
 };
 
+const url = 'https://10.114.34.87/keittokirja';
+
 const recipe = (json) => {
   // const recipeImage = json.recipe_image;
   const recipeId = json.recipe_id;
@@ -97,7 +98,7 @@ const recipe = (json) => {
     };
     try {
       const response = await fetch(
-          'http://localhost:3001/recipe/' + recipeId,
+          url + '/recipe/' + recipeId,
           fetchOptions,
       );
       const json = await response.json();
@@ -117,7 +118,7 @@ const getRecipes = async (hash) => {
       },
     };
     console.log(sessionStorage.getItem('token'));
-    const response = await fetch('http://localhost:3001/recipe/' + hash,
+    const response = await fetch(url + '/recipe/' + hash,
         fetchOptions);
     const recipes = await response.json();
     if (recipes.message === 'Database error') {
@@ -151,7 +152,7 @@ for (let i = 0; i < links.length; i++) {
 
 (async () => {
   'use strict';
-  const url = 'http://localhost:3001'; // change url when uploading to server
+  const url = 'https://10.114.34.87/keittokirja'; // change url when uploading to server
 
   // check sessionStorage
   // check if token valid
