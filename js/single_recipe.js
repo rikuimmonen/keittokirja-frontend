@@ -12,12 +12,31 @@ const getQParam = (param) => {
 const recipe_id = getQParam('id');
 console.log(recipe_id);
 
-const resepti = document.querySelector('#single-recipe');
+const resepti = document.querySelector('#tiedot');
+const ainekset = document.querySelector('#ainekset');
+const ohjeet = document.querySelector('#ohjeet');
 
 const createRecipe = (recipe) => {
   const h1 = document.createElement('h1');
   h1.innerHTML = recipe.title;
   resepti.appendChild(h1);
+
+  const size = document.createElement('p');
+  size.innerHTML = recipe.size + ' annosta';
+  resepti.appendChild(size);
+
+  const time = document.createElement('p');
+  time.innerHTML = 'Valmistusaika: ' + recipe.time + ' min';
+  resepti.appendChild(time);
+
+  const ul = document.createElement('ul');
+  for (let i = 0; i < recipe.ingredients.length; i++) {
+    console.log(recipe.ingredients[i]);
+    let li = document.createElement('li');
+    li.innerHTML = recipe.ingredients[i];
+    ul.appendChild(li);
+  }
+  ainekset.appendChild(ul);
 };
 
 const getRecipes = async () => {
