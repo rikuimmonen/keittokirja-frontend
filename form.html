@@ -29,7 +29,7 @@
                 <h1>Lisää uusi resepti</h1>
             </header>
 
-            <form action="http://localhost:3000/recipe" method="post" enctype="multipart/form-data" id="addRecipe">
+            <form action="http://localhost:3001/recipe" method="post" enctype="multipart/form-data" id="addRecipe">
                 <fieldset id="meta">
                     <legend>Reseptin tiedot</legend>
                     <p>
@@ -100,10 +100,9 @@
       },
       body: fd,
     };
-    const response = await fetch('http://localhost:3000/recipe/', fetchOptions);
+    const response = await fetch('http://localhost:3001/recipe/', fetchOptions);
     const json = await response.json();
     //alert(json.message);
-    console.log(fd);
     //location.href = '_index.html';
   });
 
@@ -157,7 +156,7 @@
 
   (async () => {
     'use strict';
-    const url = 'http://localhost:3000'; // change url when uploading to server
+    const url = 'http://localhost:3001'; // change url when uploading to server
 
     // check sessionStorage
     // check if token valid
