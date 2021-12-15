@@ -161,3 +161,18 @@ textarea {
     line-height: inherit;
     font-size: inherit;
 }
+
+/* PROFIILI */
+#profiili {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-around;
+    align-items: center;
+    background-color: #eff8ec;
+}
+
+#reseptit {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-around;
+}

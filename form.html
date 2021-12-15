@@ -4,6 +4,7 @@
     <meta charset="UTF-8"/>
     <title>Lisää uusi resepti</title>
     <link href="style.css" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/6a3ffa0283.js" crossorigin="anonymous"></script>
 </head>
 
 <body>
@@ -15,10 +16,10 @@
 
         <nav>
             <ul>
-                <li><a href="">Etusivu</a></li>
-                <li><a href="">Reseptit</a></li>
-                <li><a href="">Lisää resepti</a></li>
-                <li><a href="">Asetukset</a></li>
+                <li><a href="_index.html">Etusivu</a></li>
+                <li><a href="_recipe.html">Reseptit</a></li>
+                <li><a href="form.html">Lisää resepti</a></li>
+                <li><a href="profile.html">Asetukset</a></li>
             </ul>
         </nav>
     </header>
@@ -29,7 +30,7 @@
                 <h1>Lisää uusi resepti</h1>
             </header>
 
-            <form action="http://localhost:3001/recipe" method="post" enctype="multipart/form-data" id="addRecipe">
+            <form action="http://localhost:3000/recipe" method="post" enctype="multipart/form-data" id="addRecipe">
                 <fieldset id="meta">
                     <legend>Reseptin tiedot</legend>
                     <p>
@@ -62,7 +63,7 @@
                     </ul>
 
                     <p>
-                        <button type="button" id="add-ingredient">Lisää rivi</button>
+                        <button type="button" id="add-ingredient">Lisää rivi </button>
                     </p>
                 </fieldset>
 
@@ -90,6 +91,16 @@
 
 <script>
   const form = document.querySelector('#addRecipe')
+
+  let logged;
+
+  logged = !(!sessionStorage.getItem('token') || !sessionStorage.getItem('user'));
+
+  if (logged === false) {
+    console.log('lol');
+    location.href = 'login.html';
+  };
+
   form.addEventListener('submit', async (evt) => {
     evt.preventDefault();
     const fd = new FormData(form);
@@ -100,7 +111,7 @@
       },
       body: fd,
     };
-    const response = await fetch('http://localhost:3001/recipe/', fetchOptions);
+    const response = await fetch('http://localhost:3000/recipe/', fetchOptions);
     const json = await response.json();
     //alert(json.message);
     //location.href = '_index.html';
@@ -112,7 +123,7 @@
         <li id="add-ingredient-${i}">
         <label for="ingredient-${i}">Ainesosa</label>
         <input type="text" name="recipeIngredient" id="ingredient-${i}" class="ingredients">
-        <button id="delete-ingredient-${i}" type="button">Poista rivi</button>
+        <i class="fas fa-minus-circle" id="delete-ingredient-${i}" type="button"></i>
         </li>
         `;
   };
@@ -156,7 +167,7 @@
 
   (async () => {
     'use strict';
-    const url = 'http://localhost:3001'; // change url when uploading to server
+    const url = 'http://localhost:3000'; // change url when uploading to server
 
     // check sessionStorage
     // check if token valid

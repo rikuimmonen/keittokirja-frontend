@@ -14,6 +14,11 @@ console.log(sessionStorage.getItem('user'));
 const loggedUser = JSON.parse(sessionStorage.getItem('user'));
 console.log(loggedUser);
 
+if (logged === false) {
+  console.log('lol');
+  location.href = 'login.html';
+}
+
 
 const createProfile = (user) => {
   const h2 = document.createElement('h2');
@@ -31,7 +36,11 @@ const createRecipes = (recipes) => {
     console.log(recipe);
 
     const h4 = document.createElement('h4');
-    h4.innerHTML = recipe.title;
+    const a = document.createElement('a');
+    a.innerHTML = recipe.title;
+    a.setAttribute('href', 'recipe.html')
+
+    h4.appendChild(a);
 
     const li = document.createElement('li');
     li.appendChild(h4);
