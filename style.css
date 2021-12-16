@@ -14,7 +14,7 @@ body {
 }
 
 h1, h2, h3 {
-    font-family: arial, sans-serif;
+    /*font-family: arial, sans-serif;*/
 }
 
 #wrapper {
@@ -161,18 +161,42 @@ textarea {
     line-height: inherit;
     font-size: inherit;
 }
+a {
+    color: black;
+    text-decoration: none
+}
+
+a:hover {
+    color: #0c411e;
+    text-decoration: underline;
+}
+
 
 /* PROFIILI */
-#profiili {
+.profile {
     display: flex;
     flex-flow: row wrap;
-    justify-content: space-around;
+    justify-content: space-evenly;
+    border-bottom: 5px double #000;
+}
+
+#profiili {
+    margin: 20px;
+    padding: 20px;
+    width: 200px;
+    justify-content: flex-start;
     align-items: center;
-    background-color: #eff8ec;
+    /*border-left: black 1px solid;*/
 }
 
 #reseptit {
-    display: flex;
-    flex-flow: row wrap;
-    justify-content: space-around;
+    margin: 20px;
+    padding: 20px;
+    flex-flow: column wrap;
+    justify-content: center;
+   /* border-left: black 1px solid;*/
+}
+
+.profile ul {
+    padding-left: 20px;
 }

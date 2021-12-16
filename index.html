@@ -2,11 +2,22 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Title</title>
     <style>
-        img {
-            max-width: 400px;
-            height: auto;
+        #recipes {
+            display: flex;
+            flex-flow: row wrap;
+        }
+        .kortti {
+            margin: 10px;
+            border-bottom: 1px solid #000;
+
+        }
+        @media screen and (max-width: 1025px) {
+            #recipes img {
+                width: 300px;
+            }
         }
     </style>
     <link href="style.css" rel="stylesheet">
@@ -21,14 +32,15 @@
         <nav>
             <ul>
                 <li><a href="./index.html">Etusivu</a></li>
-                <li><a href="recipe_malli.html">Reseptit</a></li>
+                <!--<li><a href="recipe_malli.html">Reseptit</a></li>-->
                 <li><a href="form.html">Lisää resepti</a></li>
-                <li><a href="profile.html">Asetukset</a></li>
+                <li><a href="profile.html">Profiili</a></li>
             </ul>
         </nav>
     </header>
 
     <main>
+        <div id="recipes"></div>
         <!--
         <div id="forms">
         <h3>Login</h3>
@@ -52,11 +64,10 @@
             <button class="light-border" type="submit">Save</button>
         </form>
         </div>-->
-
-        <div id="recipes"></div>
     </main>
 </div>
     <script src="js/serialize.js"></script>
+    <script src="js/get_recipes.js"></script>
     <script src="js/recipe.js"></script>
     <script src="js/login.js"></script>
 </body>
