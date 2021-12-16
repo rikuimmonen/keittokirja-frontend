@@ -3,23 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Title</title>
-    <style>
-        #recipes {
-            display: flex;
-            flex-flow: row wrap;
-        }
-        .kortti {
-            margin: 10px;
-            border-bottom: 1px solid #000;
-
-        }
-        @media screen and (max-width: 1025px) {
-            #recipes img {
-                width: 300px;
-            }
-        }
-    </style>
+    <title>Reseptikirja</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Text:wght@700&family=Newsreader:wght@400;700&family=Source+Sans+Pro:wght@400;700&family=Source+Serif+Pro:ital@0;1&display=swap" rel="stylesheet">
     <link href="style.css" rel="stylesheet">
 </head>
 <body>
@@ -41,29 +28,6 @@
 
     <main>
         <div id="recipes"></div>
-        <!--
-        <div id="forms">
-        <h3>Login</h3>
-        <form id="login-form" action="http://localhost:3001/auth/login" method="post">
-            <label for="username">Email:</label>
-            <input class="light-border" type="text" id="username" name="username"/>
-
-            <label for="password">Password:</label>
-            <input class="light-border" type="password" id="password" name="password"/>
-
-            <button class="light-border" type="submit">Log In</button>
-        </form>
-
-        <button class="light-border" style="display: none;" id="log-out">Log out</button>
-
-        <h3>Register</h3>
-        <form action="http://localhost:3000/auth/register" method="post" id="add-user-form">
-            <input type="text" name="name" placeholder="Name">
-            <input type="text" name="email" placeholder="email">
-            <input type="password" name="passwd" placeholder="Password">
-            <button class="light-border" type="submit">Save</button>
-        </form>
-        </div>-->
     </main>
 </div>
     <script src="js/serialize.js"></script>

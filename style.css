@@ -5,7 +5,7 @@
 html {
     font-size: 100%;
     line-height: 1.5;
-    font-family: georgia, "segoe ui", sans-serif;
+    font-family: newsreader, serif;
 }
 
 body {
@@ -14,7 +14,13 @@ body {
 }
 
 h1, h2, h3 {
-    /*font-family: arial, sans-serif;*/
+    font-family: "big shoulders text", sans-serif;
+    text-transform: uppercase;
+}
+
+h3 {
+    font-size: 1.5em;
+    margin: 0;
 }
 
 #wrapper {
@@ -230,4 +236,20 @@ a:hover {
 
 .profile ul {
     padding-left: 20px;
+}
+
+/* KORTIT */
+
+#recipes {
+    display: flex;
+    flex-flow: row wrap;
+}
+.kortti {
+    margin: 10px;
+    border-bottom: 1px solid #000;
+}
+@media screen and (max-width: 1025px) {
+    #recipes img {
+        width: 300px;
+    }
 }
