@@ -55,7 +55,7 @@ const directionInput = (i) => {
         <li id="add-direction-${i}">
         <label for="direction-${i}">Työvaihe</label>
         <textarea name="recipeDirection" id="direction-${i}" class="directions"></textarea>
-        <button id="delete-direction-${i}" type="button">Poista rivi</button>
+        <i class="fas fa-minus-circle" id="delete-direction-${i}" type="button"></i>
         </li>
         `;
 };

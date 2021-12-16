@@ -152,8 +152,13 @@ RESEPTI
 
 /* LOMAKE */
 
-#add-recipe {
+#meta p {
+    display: flex;
+}
 
+#meta p label {
+    display: block;
+    width: 10em;
 }
 
 #ingredients ul, #directions ol {
@@ -162,11 +167,23 @@ RESEPTI
     list-style: none;
 }
 
+#ingredients ul li, #ingredients ol li {
+    margin-top: 1em;
+}
+
+#ingredients ul li+li, #ingredients ol li+li {
+    margin-top: 1em;
+}
+
 #ingredients label, #directions label {
     visibility: hidden;
     width: 0;
     height: 0;
     display: block;
+}
+
+#ingredients input, #directions textarea {
+    width: 80%;
 }
 
 textarea, input {
