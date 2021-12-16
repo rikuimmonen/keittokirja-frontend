@@ -10,8 +10,8 @@ const createRecipes = (recipes) => {
     content.classList.add('kortti');
 
     const img = document.createElement('img');
-    //img.src = url + recipe.recipe_image.small;
-    img.src = 'https://placekitten.com/400/300';
+    img.src = url + recipe.recipe_image.small;
+    //img.src = 'https://placekitten.com/400/300';
     img.alt = 'ruokakuva';
     content.appendChild(img);
     //console.log(recipe.recipe_image.small);
