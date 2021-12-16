@@ -13,17 +13,16 @@ const recipe_id = getQParam('id');
 console.log(recipe_id);
 
 const resepti = document.querySelector('#tiedot');
+const kayttaja = document.querySelector('#kayttaja');
 const ainekset = document.querySelector('#ainekset');
 const ohjeet = document.querySelector('#ohjeet');
 const kuva = document.querySelector('#kuva');
 
 const createRecipe = (recipe) => {
   const img = document.createElement('img');
-  img.src = url + recipe.recipe_image.small;
+  img.src = url + recipe.recipe_image.big;
   img.alt = 'ruokakuva';
   kuva.appendChild(img);
-  console.log(recipe.recipe_image.small);
-
 
   const h1 = document.createElement('h1');
   h1.innerHTML = recipe.title;
@@ -37,9 +36,20 @@ const createRecipe = (recipe) => {
   time.innerHTML = 'Valmistusaika: ' + recipe.time + ' min';
   resepti.appendChild(time);
 
+  const date = new Date(recipe.date);
+  const recipeDate = date.getDate() + '.' + (date.getMonth() + 1) + '.' +
+      date.getFullYear();
+  const dateNode = document.createTextNode(recipeDate);
+
+  const user = document.createElement('p');
+  const userBold = document.createElement('strong');
+  userBold.innerHTML = recipe.name + '<br>';
+  user.appendChild(userBold);
+  user.appendChild(dateNode);
+  kayttaja.appendChild(user);
+
   const ingr = document.createElement('ul');
   for (let i = 0; i < recipe.ingredients.length; i++) {
-    console.log(recipe.ingredients[i]);
     let li = document.createElement('li');
     li.innerHTML = recipe.ingredients[i];
     ingr.appendChild(li);
@@ -48,14 +58,11 @@ const createRecipe = (recipe) => {
 
   const kissa = document.createElement('ol');
   for (let i = 0; i < recipe.directions.length; i++) {
-    console.log(recipe.directions[i]);
     let li = document.createElement('li');
     li.innerHTML = recipe.directions[i];
     kissa.appendChild(li);
   }
-  console.log(kissa);
   ohjeet.appendChild(kissa);
-
 };
 
 const getRecipes = async () => {

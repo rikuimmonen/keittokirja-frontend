@@ -156,11 +156,25 @@ RESEPTI
 
 }
 
-textarea {
+#ingredients ul, #directions ol {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+}
+
+#ingredients label, #directions label {
+    visibility: hidden;
+    width: 0;
+    height: 0;
+    display: block;
+}
+
+textarea, input {
     font-family: inherit;
     line-height: inherit;
     font-size: inherit;
 }
+
 a {
     color: black;
     text-decoration: none
