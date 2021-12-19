@@ -6,6 +6,8 @@ const kontti = document.querySelector('#recipes');
 const createRecipes = (recipes) => {
   recipes.forEach((recipe) => {
     console.log(recipe);
+    let id = recipe.recipe_id;
+
     const content = document.createElement('div');
     content.classList.add('kortti');
 
@@ -13,14 +15,17 @@ const createRecipes = (recipes) => {
     img.src = url + recipe.recipe_image.small;
     //img.src = 'https://placekitten.com/400/300';
     img.alt = 'ruokakuva';
-    content.appendChild(img);
+    //content.appendChild(img);
     //console.log(recipe.recipe_image.small);
+
+    const imgLink = document.createElement('a');
+    imgLink.setAttribute('href', 'single_recipe.html?id=' + id);
+    imgLink.appendChild(img);
+    content.appendChild(imgLink);
 
     const otsikko = document.createElement('h3');
     //otsikko.innerHTML = recipe.title;
     content.appendChild(otsikko);
-
-    let id = recipe.recipe_id;
 
     const a = document.createElement('a');
     a.innerHTML = recipe.title;
