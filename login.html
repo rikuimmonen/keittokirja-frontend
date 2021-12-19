@@ -1,66 +1,69 @@
 <!DOCTYPE html>
 <html>
 
-    <head>
-        <meta charset="utf8">
-        <title>Example</title>
-        <link href="style.css" rel="stylesheet">
-        <script src="https://kit.fontawesome.com/6a3ffa0283.js" crossorigin="anonymous"></script>
-    </head>
+<head>
+    <meta charset="utf8">
+    <title>Example</title>
+    <link href="style.css" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/6a3ffa0283.js" crossorigin="anonymous"></script>
+</head>
 
-    <body>
-        <div id="wrapper">
-            <header id="header">
-                <h1>
-                    <img src="logo.svg" alt="Reseptikirja">
-                </h1>
+<body>
+<div id="wrapper">
+    <header id="header">
+        <h1>
+            <img src="logo.svg" alt="Reseptikirja">
+        </h1>
 
-                <nav>
-                    <ul>
-                        <li><a href="index.html">Etusivu</a></li>
-                        <!--<li><a href="recipe_malli.html">Reseptit</a></li>-->
-                        <li><a href="form.html">Lisää resepti</a></li>
-                        <li><a href="profile.html">Profiili</a></li>
-                    </ul>
-                </nav>
-            </header>
+        <nav>
+            <ul>
+                <li><a href="index.html">Etusivu</a></li>
+                <li><a href="form.html">Lisää resepti</a></li>
+                <li><a href="profile.html">Profiili</a></li>
+            </ul>
+        </nav>
+    </header>
 
-            <div class="container">
-                <div class="forms">
-                    <div class="form-wrapper" id="login-wrapper">
-                        <h3>Login</h3>
-                        <form id="login-form" class="light-border" action="http://localhost:3000/auth/login" method="post">
-                            <div>
-                                <label>Email:</label>
-                                <input class="light-border" type="text" name="username" />
-                            </div>
-                            <div>
-                                <label>Password:</label>
-                                <input class="light-border" type="password" name="password" />
-                            </div>
-                            <div>
-                                <button class="light-border" type="submit">Log In <i class="fas fa-sign-in-alt"></i>
-                                </button>
-                            </div>
-                        </form>
-                    </div>
-                    <button class="light-border" style="display: none;" id="log-out">Log out</button>
-
-                    <div class="form-wrapper">
-                        <h3>Register</h3>
-                        <form action="https://10.114.34.87/keittokirja/auth/register" method="post" class="light-border"
-                              id="add-user-form">
-                            <input class="light-border" type="text" name="name" placeholder="Name">
-                            <input class="light-border" type="text" name="email" placeholder="email">
-                            <input class="light-border" type="password" name="passwd" placeholder="Password">
-                            <button class="light-border" type="submit">Save</button>
-                        </form>
-                    </div>
-                </div>
+    <div class="container">
+        <h2>Kirjaudu sisään</h2>
+        <form id="login-form" action="http://localhost:3000/auth/login" method="post">
+            <div>
+                <label for="username">Sähköpostiosoite</label>
+                <input type="text" name="username" id="username"/>
             </div>
-        </div>
-        <script src="js/serialize.js"></script>
-        <script src="js/login.js"></script>
-    </body>
+            <div>
+                <label for="password">Salasana</label>
+                <input type="password" name="password" id="password"/>
+            </div>
+            <div>
+                <button type="submit">Kirjaudu sisään <i class="fas fa-sign-in-alt"></i></button>
+            </div>
+        </form>
+        <!--<button style="display: none;" id="log-out">Kirjaudu ulos</button>-->
+
+        <h2>Rekisteröidy</h2>
+
+        <form action="https://10.114.34.87/keittokirja/auth/register" method="post" id="add-user-form">
+            <div>
+                <label for="name">Nimi</label>
+                <input type="text" name="name" id="name">
+            </div>
+            <div>
+                <label for="email">Sähköpostiosoite</label>
+                <input type="text" name="email" id="email">
+            </div>
+            <div>
+                <label for="new-password">Salasana</label>
+                <input type="password" name="passwd" id="new-password">
+            </div>
+            <div>
+                <button type="submit">Save</button>
+            </div>
+        </form>
+    </div>
+</div>
+<script src="js/serialize.js"></script>
+<script src="js/login.js"></script>
+</body>
 
 </html>

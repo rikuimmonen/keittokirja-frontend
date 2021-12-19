@@ -1,37 +1,40 @@
 <!DOCTYPE html>
 <html lang="fi">
-    <head>
-        <meta charset="UTF-8">
-        <title>Profiili</title>
-        <link href="style.css" rel="stylesheet">
-        <link rel="preconnect" href="https://fonts.googleapis.com">
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Text:wght@700&family=Newsreader:wght@400;700&family=Source+Sans+Pro:wght@400;700&family=Source+Serif+Pro:ital@0;1&display=swap" rel="stylesheet">
-    </head>
-    <body>
-        <div id="wrapper">
-            <header id="header">
-                <h1>
-                    <img src="logo.svg" alt="Reseptikirja">
-                </h1>
+<head>
+    <meta charset="UTF-8">
+    <title>Profiili</title>
+    <link href="style.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Text:wght@700&family=Newsreader:wght@400;700&family=Source+Sans+Pro:wght@400;700&family=Source+Serif+Pro:ital@0;1&display=swap"
+          rel="stylesheet">
+</head>
+<body>
+<div id="wrapper">
+    <header id="header">
+        <h1>
+            <img src="logo.svg" alt="Reseptikirja">
+        </h1>
 
-                <nav>
-                    <ul>
-                        <li><a href="index.html">Etusivu</a></li>
-                        <!--<li><a href="recipe_malli.html">Reseptit</a></li>-->
-                        <li><a href="form.html">Lisää resepti</a></li>
-                        <li><a href="profile.html">Profiili</a></li>
-                    </ul>
-                </nav>
-            </header>
-            <div class="profile">
-                <div id="reseptit">
-                    <h2>Omat reseptit</h2>
-                    <ul id="reseptilista"></ul>
-                </div>
-                <div id="profiili"></div>
+        <nav>
+            <ul>
+                <li><a href="index.html">Etusivu</a></li>
+                <li><a href="form.html">Lisää resepti</a></li>
+                <li><a href="profile.html">Profiili</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <div class="profile">
+            <div id="reseptit">
+                <h2>Omat reseptit</h2>
+                <ul id="reseptilista"></ul>
             </div>
+            <div id="profiili"></div>
         </div>
-        <script src="js/profile.js"></script>
-    </body>
+    </main>
+</div>
+<script src="js/profile.js"></script>
+</body>
 </html>
