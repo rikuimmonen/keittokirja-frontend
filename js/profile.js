@@ -19,8 +19,17 @@ const createProfile = (user) => {
   const h4 = document.createElement('h4');
   h4.innerHTML = user.email;
 
+
+  const teksti = document.createElement('p');
+  const ulos = document.createElement('a');
+  ulos.href = 'logout.html';
+  ulos.innerText = 'Kirjaudu ulos';
+  teksti.appendChild(ulos);
+
+
   profiili.appendChild(h2);
   profiili.appendChild(h4);
+  profiili.appendChild(teksti);
 };
 
 const createRecipes = (recipes) => {
@@ -30,22 +39,22 @@ const createRecipes = (recipes) => {
     let id = recipe.recipe_id;
     console.log(id);
 
-    const h4 = document.createElement('h4');
+    const ruoka = document.createElement('p');
     const a = document.createElement('a');
     a.innerHTML = recipe.title;
     a.setAttribute('href', 'single_recipe.html?id=' + id);
 /*
     // open image in single.html
-    h4.addEventListener('click', () => {
+    ruoka.addEventListener('click', () => {
       location.href = 'single_recipe.html?id=' + id;
     });*/
 
-    h4.appendChild(a);
+    ruoka.appendChild(a);
 
     const li = document.createElement('li');
-    li.appendChild(h4);
+    li.appendChild(ruoka);
 
-    reseptilista.appendChild(h4);
+    reseptilista.appendChild(ruoka);
   });
 };
 
