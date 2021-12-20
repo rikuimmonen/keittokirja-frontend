@@ -1,6 +1,10 @@
 'use strict';
 const url = 'https://10.114.34.87/keittokirja'; // change url when uploading to server
 
+let logged;
+logged = !(!sessionStorage.getItem('token') || !sessionStorage.getItem('user'));
+const loggedUser = logged ? JSON.parse(sessionStorage.getItem('user')) : '';
+
 // get query parameter
 const getQParam = (param) => {
   const queryString = window.location.search;
@@ -10,7 +14,6 @@ const getQParam = (param) => {
 
 // get id from address
 const recipe_id = getQParam('id');
-console.log(recipe_id);
 
 const resepti = document.querySelector('#tiedot');
 const kayttaja = document.querySelector('#kayttaja');
@@ -40,6 +43,16 @@ const createRecipe = (recipe) => {
   const recipeDate = date.getDate() + '.' + (date.getMonth() + 1) + '.' +
       date.getFullYear();
   const dateNode = document.createTextNode(recipeDate);
+
+  if (loggedUser.id === recipe.user_id) {
+    const editRecipeLink = document.createElement('a');
+    editRecipeLink.href = 'edit_recipe.html?id=' + recipe_id;
+    editRecipeLink.innerText = 'Muokkaa reseptiä';
+    const editRecipeP = document.createElement('p')
+    editRecipeP.id = 'editRecipe';
+    editRecipeP.appendChild(editRecipeLink);
+    kayttaja.appendChild(editRecipeP);
+  }
 
   const user = document.createElement('p');
   const userBold = document.createElement('strong');

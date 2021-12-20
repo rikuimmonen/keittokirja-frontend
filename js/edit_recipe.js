@@ -57,8 +57,6 @@ const getRecipe = async (id) => {
 
 getRecipe(recipe_id);
 
-console.log(document.getElementsByClassName('ingredients'));
-
 const editRecipe = document.querySelector('#editRecipe');
 editRecipe.addEventListener('submit', async (evt) => {
   evt.preventDefault();
@@ -95,9 +93,9 @@ editRecipe.addEventListener('submit', async (evt) => {
   if (json.error) {
     alert(json.error.message);
   } else {
-    alert(json.message);
+    //alert(json.message);
+    location.href = 'single_recipe.html?id=' + recipe_id;
   }
-  //location.href = 'front.html';
 });
 
 (async () => {
@@ -112,7 +110,7 @@ editRecipe.addEventListener('submit', async (evt) => {
     };
     const response = await fetch(url + '/user/token', fetchOptions);
     if (!response.ok) {
-      //location.href = 'logout.html';
+      location.href = 'login.html';
     } else {
       const json = await response.json();
       sessionStorage.setItem('user', JSON.stringify(json.user));

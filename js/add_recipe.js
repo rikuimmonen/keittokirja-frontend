@@ -22,7 +22,7 @@ form.addEventListener('submit', async (evt) => {
   const response = await fetch('https://10.114.34.87/keittokirja/recipe/', fetchOptions);
   const json = await response.json();
   alert(json.message);
-  //location.href = 'index.html';
+  location.href = 'index.html';
 });
 
 const ingredientsList = document.querySelector('#ingredients ul');

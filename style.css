@@ -117,6 +117,26 @@ RESEPTI
     margin: 0;
 }
 
+.user p#editRecipe {
+    margin-bottom: 1.5em;
+    line-height: 1;
+}
+
+.user p#editRecipe a {
+    padding: 1rem 1.5rem;
+    border: 1px solid #000;
+    display: block;
+    text-align: center;
+    font-size: .75em;
+    line-height: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+}
+
+.user p#editRecipe a:hover {
+    background: #eee;
+}
+
 .recipe .content {
     display: flex;
 }

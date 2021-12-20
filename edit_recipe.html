@@ -3,44 +3,68 @@
 
 <head>
     <meta charset="UTF-8"/>
-    <title></title>
+    <title>Muokkaa reseptiä</title>
+    <link href="style.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Text:wght@700&family=Newsreader:wght@400;700&family=Source+Sans+Pro:wght@400;700&family=Source+Serif+Pro:ital@0;1&display=swap"
+          rel="stylesheet">
 </head>
 
 <body>
-<form action="https://10.114.34.87/keittokirja/recipe" method="post" enctype="multipart/form-data" id="editRecipe">
-    <fieldset id="meta">
-        <legend>Reseptin tiedot</legend>
-        <p>
-            <label for="recipeTitle">Otsikko</label>
-            <input type="text" id="recipeTitle" name="recipeTitle"/>
-        </p>
+<div id="wrapper">
+    <header id="header">
+        <h1>
+            <img src="logo.svg" alt="Reseptikirja">
+        </h1>
 
-        <p>
-            <label for="recipeSize">Annosmäärä</label>
-            <input type="number" step="1" id="recipeSize" name="recipeSize"/>
-        </p>
+        <nav>
+            <ul>
+                <li><a href="index.html">Etusivu</a></li>
+                <li><a href="form.html">Lisää resepti</a></li>
+                <li><a href="profile.html">Profiili</a></li>
+            </ul>
+        </nav>
+    </header>
 
-        <p>
-            <label for="recipeTime">Valmistusaika (min)</label>
-            <input type="number" step="1" id="recipeTime" name="recipeTime"/>
-        </p>
-    </fieldset>
-    <fieldset id="ingredients">
-        <legend>Ainesosat</legend>
-        <ul>
-        </ul>
-    </fieldset>
+    <main>
+        <form action="https://10.114.34.87/keittokirja/recipe" method="post" enctype="multipart/form-data"
+              id="editRecipe">
+            <fieldset id="meta">
+                <legend>Reseptin tiedot</legend>
+                <p>
+                    <label for="recipeTitle">Otsikko</label>
+                    <input type="text" id="recipeTitle" name="recipeTitle"/>
+                </p>
 
-    <fieldset id="directions">
-        <legend>Valmistus</legend>
-        <ol>
-        </ol>
-    </fieldset>
+                <p>
+                    <label for="recipeSize">Annosmäärä</label>
+                    <input type="number" step="1" id="recipeSize" name="recipeSize"/>
+                </p>
 
-    <p>
-        <button>Tallenna resepti</button>
-    </p>
-</form>
+                <p>
+                    <label for="recipeTime">Valmistusaika (min)</label>
+                    <input type="number" step="1" id="recipeTime" name="recipeTime"/>
+                </p>
+            </fieldset>
+            <fieldset id="ingredients">
+                <legend>Ainesosat</legend>
+                <ul>
+                </ul>
+            </fieldset>
+
+            <fieldset id="directions">
+                <legend>Työvaiheet</legend>
+                <ol>
+                </ol>
+            </fieldset>
+
+            <p>
+                <button>Tallenna resepti</button>
+            </p>
+        </form>
+    </main>
+</div>
 
 <script src="./js/serialize.js"></script>
 <script src="./js/edit_recipe.js"></script>

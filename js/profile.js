@@ -5,17 +5,10 @@ const profiili = document.querySelector('#profiili');
 const reseptilista = document.querySelector('#reseptilista')
 
 let logged;
-
 logged = !(!sessionStorage.getItem('token') || !sessionStorage.getItem('user'));
-console.log(logged);
-console.log(sessionStorage.getItem('token'));
-console.log(sessionStorage.getItem('user'));
-
 const loggedUser = JSON.parse(sessionStorage.getItem('user'));
-console.log(loggedUser);
 
 if (logged === false) {
-  console.log('lol');
   location.href = 'login.html';
 }
 
